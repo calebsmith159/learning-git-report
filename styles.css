@@ -655,6 +655,69 @@ circle.is-merge { fill: var(--merged); }
     color: var(--ink-soft);
 }
 
+/* ---------- Full-width animations (tablet and desktop) ---------- */
+@media (min-width: 601px) {
+    .concept-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+    }
+
+    .viz {
+        order: -1;
+        position: relative;
+        top: auto;
+        border-radius: calc(var(--radius) + 6px);
+    }
+
+    .viz-stage {
+        padding: clamp(20px, 4vw, 48px) clamp(16px, 5vw, 64px);
+        background:
+            radial-gradient(ellipse 60% 70% at 50% 45%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%),
+            radial-gradient(circle, color-mix(in srgb, var(--ink) 11%, transparent) 1px, transparent 1.5px) 0 0 / 24px 24px;
+    }
+
+    .viz svg {
+        max-width: 1040px;
+        margin: 0 auto;
+        filter: drop-shadow(0 14px 22px rgba(40, 28, 10, 0.12));
+    }
+
+    .viz-progress {
+        height: 4px;
+    }
+
+    .viz figcaption {
+        padding: 20px clamp(20px, 4vw, 40px);
+    }
+
+    .viz-caption {
+        font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+        font-weight: 600;
+    }
+
+    .replay {
+        padding: 9px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Text below the animation reads as two columns on wider screens */
+@media (min-width: 901px) {
+    .concept-text {
+        columns: 2;
+        column-gap: 56px;
+    }
+
+    .concept-text h3:first-of-type {
+        break-before: column;
+        margin-top: 0;
+    }
+
+    .concept-text .considerations li {
+        break-inside: avoid;
+    }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
     .concept-grid {
